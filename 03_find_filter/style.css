@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #fff;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.cards {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cards li {
+  width: 32%;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.cards li img {
+  width: 100%;
+  display: block;
+  transition: 0.3s;
+}
+
+.cards li.active img {
+  transform: scale(1.2);
+}
+
+.cards li p {
+  height: 60px;
+  line-height: 60px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0 1rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+.cards li:nth-child(1) p {
+  bottom: -60px;
+}
+
+.cards li:nth-child(2) p {
+  bottom: 0;
+}
+
+.cards li:nth-child(3) p {
+  left: -100%;
+}

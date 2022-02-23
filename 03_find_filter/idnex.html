@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find and Filter | Jquery</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="../lib/jquery-3.6.0.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Find & Filter</h1>
+      <ul class="cards">
+        <li>
+          <img src="../images/group_01.jpg" alt="" />
+          <p>This title is - 01</p>
+        </li>
+        <li>
+          <img src="../images/group_02.jpg" alt="" />
+          <p>This title is - 02</p>
+        </li>
+        <li>
+          <img src="../images/group_03.jpg" alt="" />
+          <p>This title is - 03</p>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      var item = $(".cards li");
+      item.eq(0).mouseenter(() => {
+        $(this).find("p").stop().animate({ opacity: 1, bottom: 0 }, 300);
+        $(this).addClass("active");
+      });
+    </script>
+  </body>
+</html>

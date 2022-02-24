@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery | each</title>
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="../lib/jquery-3.6.0.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>each</h1>
+      <div class="card">
+        <div class="card_photo">
+          <img src="../images/group_02.jpg" alt="" />
+          <div class="social">
+            <span class="share"><i class="xi-share-alt"></i></span>
+            <span><i class="xi-dribbble"></i></span>
+            <span><i class="xi-facebook"></i></span>
+            <span><i class="xi-github"></i></span>
+          </div>
+        </div>
+        <div class="card_info">
+          <h2>this is title</h2>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis
+            reiciendis, dignissimos.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var social = $(".social");
+      var item = $(".social span");
+
+      social.hover(
+        function () {
+          item.each(function (index) {
+            $(this)
+              .stop()
+              .animate({ left: -(index * 50) }, 300);
+          });
+        },
+        function () {
+          item.each(function (index) {
+            $(this).stop().animate({ left: -0 }, 300);
+          });
+        }
+      );
+
+      //(index * 50) => 0, 1, 2, 3의 배열을 가진 index를 순차적으로 0*50 / 1*50 / 2*50 함으로써 각각 거리가 다르기 때문에 펼쳐지듯이 효과를 낼 수 있다.
+    </script>
+  </body>
+</html>

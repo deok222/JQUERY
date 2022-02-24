@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background-color: #666;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 20px;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.cards li {
+  width: 49%;
+}
+
+.dimm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  visibility: hidden;
+  /* visibility: hidden과 display: none 
+     공통점 : 둘 다 화면에서 안보이게 됌.
+     차이점 : display: none은 영역 자체가 사라지기 때문에, 웹상에서 선택조차 되지 않음
+            visibility: hidden은 영역 자체는 사라지지 않기 때문에, 웹상에서 선택 가능함*/
+}
+
+.dimm.show {
+  visibility: visible;
+}
+
+.dimm img {
+  width: initial;
+  height: 80%;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jquery | auto fade</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="../lib/jquery-3.6.0.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Auto fade</h1>
+
+      <div class="slider">
+        <ul class="sliders">
+          <li class="slide"><img src="../images/group_01.jpg" alt="" /></li>
+          <li class="slide"><img src="../images/group_02.jpg" alt="" /></li>
+          <li class="slide"><img src="../images/group_03.jpg" alt="" /></li>
+          <li class="slide"><img src="../images/group_04.jpg" alt="" /></li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      var slides = $(".slide");
+      var currentIndex = 0;
+      var interval = 3000;
+      var timer;
+
+      $(slides[currentIndex]).fadeIn();
+
+      function fadeStart() {
+        timer = setInterval(function () {
+          var nextIndex = (currentIndex + 1) % slides.length;
+          $(slides[currentIndex]).fadeOut();
+          $(slides[nextIndex]).fadeIn();
+          currentIndex = nextIndex;
+        }, interval);
+      }
+
+      function fadeStop() {
+        clearInterval(timer);
+      }
+
+      slides.on("mouseover", fadeStop).on("mouseleave", fadeStart);
+
+      fadeStart();
+
+      //   var interval = 500;
+      //   var timer;
+      //   var title = $(".title");
+
+      //   function sayHello() {
+      //     console.log("hihi");
+      //   }
+
+      //   timer = setInterval(sayHello, interval);
+
+      //   title.click(function () {
+      //     clearInterval(timer);
+      //   });
+    </script>
+  </body>
+</html>

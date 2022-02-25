@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery | tab2</title>
+    <link rel="stylesheet" href="./style2.css" />
+    <script src="../lib/jquery-3.6.0.js"></script>
+    <!-- <script src="./app.js"></script> -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tab 2</h1>
+
+      <ul class="tab">
+        <li><a href="#tab1">tab1</a></li>
+        <li><a href="#tab2">tab2</a></li>
+        <li><a href="#tab3">tab3</a></li>
+
+        <!-- a의 href 속에 넣은(#@) id는 앵커라고 하며, 브라우저상에서 클릭시 해당 아이디가 붙은 요소로 이동한다. -->
+      </ul>
+
+      <div id="tab1" class="tab_content">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat
+        accusamus earum numquam vel ipsum autem. Odio deserunt labore minima in
+        perspiciatis quibusdam autem provident unde, libero aspernatur rerum
+        assumenda laboriosam! Lorem ipsum dolor sit, amet consectetur
+        adipisicing elit. Placeat accusamus earum numquam vel ipsum autem. Odio
+        deserunt labore minima in perspiciatis quibusdam autem provident unde,
+        libero aspernatur rerum assumenda laboriosam!
+      </div>
+
+      <div id="tab2" class="tab_content">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat
+        accusamus earum numquam vel ipsum autem. Odio deserunt labore minima in
+        perspiciatis quibusdam autem provident unde, libero aspernatur rerum
+        assumenda laboriosam! Lorem ipsum dolor sit, amet consectetur
+        adipisicing elit. Placeat accusamus earum numquam vel ipsum autem. Odio
+        deserunt labore minima in perspiciatis quibusdam autem provident unde,
+        libero aspernatur rerum assumenda laboriosam! Lorem ipsum dolor sit,
+        amet consectetur adipisicing elit. Placeat accusamus earum numquam vel
+        ipsum autem. Odio deserunt labore minima in perspiciatis quibusdam autem
+        provident unde, libero aspernatur rerum assumenda laboriosam!
+      </div>
+
+      <div id="tab3" class="tab_content">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat
+        accusamus earum numquam vel ipsum autem. Odio deserunt labore minima in
+        perspiciatis quibusdam autem provident unde, libero aspernatur rerum
+        assumenda laboriosam!
+      </div>
+    </div>
+
+    <script>
+      var btns = $(".tab li");
+      var contents = $(".tab_content");
+
+      contents.hide().eq(0).show();
+      btns.eq(0).addClass("active");
+
+      btns.mouseover(function () {
+        btns.removeClass("active");
+        $(this).addClass("active");
+
+        contents.hide();
+
+        var activeTab = $(this).find("a").attr("href");
+        $(activeTab).fadeIn();
+      });
+    </script>
+  </body>
+</html>

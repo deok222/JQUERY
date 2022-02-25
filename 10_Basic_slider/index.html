@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery | basic slide</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="../lib/jquery-3.6.0.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Basic Slide</h1>
+
+      <div class="slider">
+        <ul class="slides">
+          <li class="slide"><img src="../images/group_01.jpg" alt="01" /></li>
+          <li class="slide"><img src="../images/group_02.jpg" alt="01" /></li>
+          <li class="slide"><img src="../images/group_03.jpg" alt="01" /></li>
+          <li class="slide"><img src="../images/group_04.jpg" alt="01" /></li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      var slider = $(".slider");
+      var slideContainer = slider.find(".slides");
+      var slides = slideContainer.find(".slide");
+      var interval = 3000;
+      var speed = 1000;
+      var width = 600;
+      var currentSlide = 1;
+      var timer;
+
+      slides.each(function (index) {
+        $(slides[index]).css("left", index * width + "px");
+      });
+
+      function slideStart() {
+        timer = setInterval(function () {
+          slideContainer.animate(
+            { marginLeft: "-=" + width + "px" },
+            speed,
+            function () {
+              currentSlide++;
+              if (currentSlide === slides.length) {
+                currentSlide = 1;
+                slideContainer.css("marginLeft", 0);
+              }
+            }
+          );
+        }, interval);
+      }
+
+      function slideStop() {
+        clearInterval(timer);
+      }
+
+      slides.on("mouseover", slideStop).on("mouseleave", slideStart);
+
+      slideStart();
+    </script>
+  </body>
+</html>

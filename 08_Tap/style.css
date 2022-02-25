@@ -51,11 +51,11 @@ h1 {
   color: #111;
 }
 
-.tab a:hover {
-  background-color: #999;
-}
-
-.tab a.acive {
+.tab a.active {
   background-color: #666;
   color: #fff;
+}
+
+.tab a:hover {
+  background-color: #999;
 }

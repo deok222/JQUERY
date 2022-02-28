@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="../lib/jquery-3.6.0.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Filter</h1>
+
+      <div class="btns">
+        <button data-id="all">all</button>
+        <button data-id="web">web</button>
+        <button data-id="ui">ui</button>
+        <button data-id="js">js</button>
+      </div>
+
+      <ul class="list">
+        <li data-item="web">1 <b>web</b></li>
+        <li data-item="ui">2 <b>ui</b></li>
+        <li data-item="web">3 <b>web</b></li>
+        <li data-item="web">4 <b>web</b></li>
+        <li data-item="js">5 <b>js</b></li>
+        <li data-item="ui">6 <b>ui</b></li>
+        <li data-item="js">7 <b>js</b></li>
+        <li data-item="web">8 <b>web</b></li>
+        <li data-item="js">9 <b>js</b></li>
+      </ul>
+    </div>
+
+    <script>
+      var btns = $(".btns button");
+      var item = $(".list li");
+
+      btns.on("click", function (e) {
+        var category = e.target.dataset.id;
+        if (category === "all") {
+          item.show();
+        } else {
+          item
+            .hide()
+            // .filter("[data-item =" + category + "]")
+            // [data-item] = category] (백틱으로 아래처럼 표현가능)
+            .filter(`[data-item = ${category}]`)
+            .fadeIn();
+        }
+      });
+    </script>
+  </body>
+</html>
